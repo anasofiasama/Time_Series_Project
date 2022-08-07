@@ -39,12 +39,13 @@ train_a.set_index('datetime',inplace=True)
 # Seasonal ARIMA Model
 # Define the model
 stepwise_model = auto_arima(train_a, start_p=1, start_q=1,
-                           max_p=3, max_q=3, m=60*2,
+                           max_p=2, max_q=2, m=60*2,
                            start_P=0, seasonal=True,
                            d=1, D=1, trace=True,
                            error_action='ignore',  
                            suppress_warnings=True, 
-                           stepwise=True,random_state=608)
+                           stepwise=True,
+                           random_state=608)
 #print(stepwise_model.aic())
 
 # Fit the best model
